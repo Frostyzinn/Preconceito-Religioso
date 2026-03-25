@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil | Respeito Sagrado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Prata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos Base (Mantidos) */
+        .profile-card { text-align: center; padding: 50px 20px; }
+        .avatar-frame { width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--accent-gold, #c69c6d); margin: 0 auto 20px; overflow: hidden; box-shadow: var(--shadow-md); cursor: pointer; transition: 0.3s; }
+        .avatar-frame:hover { opacity: 0.8; transform: scale(1.02); }
+        .avatar-frame img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .achievement-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+        .badge { padding: 8px 16px; background: rgba(198, 156, 109, 0.1); border: 1px solid var(--accent-gold, #c69c6d); border-radius: var(--radius-pill); font-size: 0.85rem; font-weight: bold; color: var(--primary-dark); }
+        
+        /* Galeria Clicável (Mantida) */
+        .grid-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; margin-top: 20px; }
+        .grid-gallery div { 
+            aspect-ratio: 1; 
+            background: #eee; 
+            border-radius: var(--radius-sm, 8px); 
+            box-shadow: var(--shadow-sm); 
+            overflow: hidden; 
+            cursor: pointer; 
+            transition: 0.3s;
+        }
+        .grid-gallery div:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+        /* ===== ESTILOS DO MODAL (ATUALIZADO PARA PADRONIZAR E DIMINUIR) ===== */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 9999; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85); /* Fundo um pouco menos escuro */
+            backdrop-filter: blur(4px); /* Blur suave */
+            /* Centralização perfeita */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* O segredo da padronização e tamanho menor está aqui */
+        .modal-content {
+            display: block;
+            /* Tamanho máximo padronizado (menor) */
+            max-width: 80%;  /* Ocupa no máximo 80% da largura da tela */
+            max-height: 70vh; /* Ocupa no máximo 70% da altura da tela */
+            
+            width: auto;  /* Mantém a proporção */
+            height: auto; /* Mantém a proporção */
+
+            border-radius: 12px; /* Bordas mais arredondadas para combinar */
+            border: 4px solid #fff; /* Moldura branca elegante */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            
+            animation: zoom 0.3s ease-out;
+            object-fit: contain; /* Garante que a imagem inteira apareça sem cortes */
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #fff;
+            font-size: 45px;
+            font-weight: 300;
+            cursor: pointer;
+            z-index: 10000; /* Garante que fique acima da imagem */
+        }
+        .close-modal:hover { color: var(--accent-gold, #c69c6d); }
+
+        @keyframes zoom {
+            from {transform: scale(0.8); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+        
+        /* Ajuste para garantir que o flex não quebre o display: none padrão */
+        .modal[style*="display: block"] {
+            display: flex !important;
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-content">
+        <h1 class="logo">Respeito<span class="thin">Sagrado</span></h1>
+    </div>
+</header>
+
+<main class="feed-container">
+    <article class="post post-text profile-card">
+        <div class="avatar-frame" id="profileTrigger">
+            <img src="WhatsApp Image 2026-03-24 at 21.42.50.jpeg" alt="Foto de Perfil" onerror="this.src='https://via.placeholder.com/150'">
+        </div>
+        <span class="category">Nível Ancião</span>
+        <h2 class="post-title" style="margin-bottom: 10px;">Guardião do Axé</h2>
+        <p class="post-excerpt" style="max-width: 500px; margin: 0 auto;">Educador, ativista e pesquisador das tradições de matriz africana. Dedicado à preservação do sagrado.</p>
+        
+        <div class="achievement-row">
+            <div class="badge">🏆 Defensor do Ano</div>
+            <div class="badge">📚 50 Artigos</div>
+        </div>
+    </article>
+
+    <div style="margin-top: 40px;">
+        <h3 class="post-title" style="font-size: 1.4rem; color: var(--text-main);">Minhas Contribuições</h3>
+        <div class="grid-gallery">
+            <div class="gallery-item" style="background-image: url('ChatGPT\ Image\ 24\ de\ mar.\ de\ 2026\,\ 21_36_50\ \(1\).png'); background-size: cover;"></div>
+            <div class="gallery-item" style="background-image: url('Post\ -\ Filosofia.png'); background-size: cover;"></div>
+            <div class="gallery-item" style="background-image: url('Post\ -\ Sobre\ preconceito.png'); background-size: cover;"></div>
+            <div class="gallery-item" style="background-image: url('Post\ para\ Instagram\ minimalista\ troque\ intolerância\ por\ empatia\ cinza\ \(2\).png'); background-size: cover;"></div>
+            <div class="gallery-item" style="background-image: url('Dia\ Nacional\ do\ Combate\ ao\ Racismo.png'); background-size: cover;"></div>
+            <div class="gallery-item" style="background-image: url('Dia\ Nacional\ do\ Combate\ ao\ Racismo\ \(3\)\ \(2\).png'); background-size: cover;"></div>
+        </div>
+    </div>
+</main>
+
+<nav class="floating-nav">
+    <div class="nav-content">
+        <a href="index.html" class="nav-link" title="Início">🏠</a>
+        <a href="explore.html" class="nav-link" title="Explorar">🔍</a>
+        <a href="post.html" class="nav-link nav-link-center" title="Novo Post"><span class="plus-icon">➕</span></a>
+        <a href="notifications.html" class="nav-link" title="Notificações">❤️</a>
+        <a href="perfil.html" class="nav-link active" title="Perfil">👤</a>
+    </div>
+</nav>
+
+<div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="expandedImg">
+</div>
+
+<script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("expandedImg");
+    const closeBtn = document.querySelector(".close-modal");
+
+    // Função para abrir o modal
+    function openModal(src) {
+        modal.style.display = "block";
+        modalImg.src = src;
+    }
+
+    // Clique na Foto de Perfil
+    document.getElementById("profileTrigger").onclick = function() {
+        const img = this.querySelector("img");
+        openModal(img.src);
+    };
+
+    // Clique nos Itens da Galeria
+    const galleryItems = document.querySelectorAll(".gallery-item");
+    galleryItems.forEach(item => {
+        item.onclick = function() {
+            // Extrai a URL limpa do background-image
+            const bgImg = window.getComputedStyle(this).backgroundImage;
+            const url = bgImg.slice(4, -1).replace(/"/g, "");
+            openModal(url);
+        };
+    });
+
+    // Fechar Modal (no X ou clicando fora da imagem)
+    closeBtn.onclick = () => modal.style.display = "none";
+    modal.onclick = (e) => {
+        if (e.target !== modalImg && e.target !== closeBtn) modal.style.display = "none";
+    };
+</script>
+
+</body>
+</html>

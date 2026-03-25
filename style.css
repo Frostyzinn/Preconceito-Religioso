@@ -1,0 +1,276 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GLOBAIS E PALETA DE CORES (MODERNA & ANCESTRAL)
+   ========================================================================== */
+:root {
+    /* Cores */
+    --bg-color: #fcfaf8;          /* Off-white quente, confortável */
+    --text-main: #1a1d1e;         /* Quase preto */
+    --text-sub: #636e72;
+    --primary-dark: #073b3a;      /* Verde Petróleo Profundo (Seriedade) */
+    --accent-gold: #c69c6d;       /* Ouro Velho Escovado (Sabedoria) */
+    --white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.8);
+    
+    /* Tipografia */
+    --font-heading: 'Prata', serif;      /* Elegante, histórica */
+    --font-body: 'DM Sans', sans-serif;  /* Moderna, geométrica */
+    
+    /* Efeitos */
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+    --shadow-md: 0 10px 30px rgba(7, 59, 58, 0.1); /* Sombra esverdeada leve */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-pill: 50px;
+    --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Animação suave */
+}
+
+/* Reset Moderno */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 120px; /* Espaço para a navbar flutuante */
+    line-height: 1.6;
+}
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; outline: none; }
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+img { max-width: 100%; display: block; object-fit: cover; }
+
+/* Tipografia Utilitária */
+.category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* ==========================================================================
+   HEADER (LIMPO E MINIMALISTA)
+   ========================================================================== */
+.main-header {
+    background: var(--glass);
+    backdrop-filter: blur(10px); /* Efeito de vidro */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 15px 0;
+}
+
+.header-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--primary-dark);
+}
+
+.logo .thin { font-weight: 400; color: var(--text-main); }
+
+.icon-btn { font-size: 1.3rem; opacity: 0.7; transition: var(--transition); }
+.icon-btn:hover { opacity: 1; transform: scale(1.1); }
+
+/* ==========================================================================
+   CONTAINER DO FEED (LAYOUT ASSIMÉTRICO MODERNIZADO)
+   ========================================================================== */
+.feed-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.feed-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Espaço maior entre os posts */
+}
+
+/* Estilo Base do Post (Sem Bordas ou Cards) */
+.post {
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.post-img { width: 100%; height: 100%; }
+
+/* Ícones de Ação Modernos */
+.post-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 15px;
+}
+
+.action-btn {
+    font-size: 0.95rem;
+    color: var(--text-sub);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+}
+
+.action-btn:hover { color: var(--accent-gold); transform: translateY(-2px); }
+.action-btn .count { font-weight: 700; color: var(--text-main); }
+
+/* --- TIPO 1: Post Hero (Texto sobre a imagem) --- */
+.post-hero {
+    position: relative;
+    border-radius: var(--radius-md);
+    height: 450px;
+    box-shadow: var(--shadow-md);
+}
+
+.post-hero .post-img { position: absolute; top: 0; left: 0; z-index: 1; }
+
+.post-overlay {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    padding: 40px;
+    background: linear-gradient(to top, rgba(7, 59, 58, 0.9), transparent);
+    z-index: 2;
+    color: var(--white);
+}
+
+.post-quote {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.post-author { font-size: 1.1rem; opacity: 0.8; font-weight: 400; }
+.post-hero .category { color: var(--accent-gold); }
+.post-hero .post-actions { border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+.post-hero .action-btn { color: white; }
+.post-hero .action-btn .count { color: white; }
+
+
+/* --- TIPO 2: Post Editorial (Assimétrico Lado a Lado) --- */
+.post-editorial {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.post-img-wrapper {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    height: 300px;
+    box-shadow: var(--shadow-sm);
+}
+
+.post-editorial .post-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.post-excerpt { color: var(--text-sub); font-size: 1rem; }
+
+/* --- TIPO 3: Post Apenas Texto (Minimalista) --- */
+.post-text {
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(0,0,0,0.03);
+    box-shadow: var(--shadow-sm);
+}
+
+.post-text .post-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--text-main);
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   FLOATING NAVBAR (MODERNA & ASSIMÉTRICA - GLASSMORPHISM)
+   ========================================================================= */
+.floating-nav {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 420px;
+    background: rgba(7, 59, 58, 0.95); /* Verde escuro com transparência */
+    backdrop-filter: blur(15px);
+    border-radius: var(--radius-pill);
+    padding: 10px;
+    box-shadow: 0 15px 40px rgba(7, 59, 58, 0.3);
+    z-index: 2000;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.nav-link {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.6);
+    width: 50px; height: 50px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--white);
+    background: rgba(255,255,255,0.1);
+}
+
+/* Botão Central de DestaqueAssimétrico */
+.nav-link-center {
+    background: var(--accent-gold) !important;
+    color: var(--primary-dark) !important;
+    font-size: 1.2rem;
+    transform: translateY(-15px); /* Flutua para cima */
+    box-shadow: 0 8px 20px rgba(198, 156, 109, 0.4);
+    width: 60px; height: 60px;
+}
+
+.nav-link-center:hover {
+    transform: translateY(-20px) scale(1.05);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE-FIRST)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .post-hero { height: 350px; }
+    .post-quote { font-size: 1.7rem; }
+    
+    .post-editorial {
+        grid-template-columns: 1fr; /* Stack no mobile */
+        gap: 20px;
+    }
+    
+    .post-img-wrapper { height: 220px; }
+    
+    .post-editorial .post-title,
+    .post-text .post-title { font-size: 1.5rem; }
+    
+    .floating-nav { bottom: 15px; width: 95%; }
+    .nav-link { font-size: 1.2rem; }
+}

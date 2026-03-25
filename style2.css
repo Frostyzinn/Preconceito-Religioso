@@ -1,0 +1,65 @@
+:root {
+    --primary: #1b5e20; /* Verde escuro do tema RespeitoSagrado */
+    --bg-color: #fafafa;
+    --border-color: #dbdbdb;
+    --text-main: #262626;
+    --text-sub: #8e8e8e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: white;
+    color: var(--text-main);
+    padding-bottom: 60px; 
+}
+
+.topbar {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.profile-header { padding: 20px 16px; }
+
+.profile-pic {
+    width: 80px; height: 80px; border-radius: 50%;
+    object-fit: cover; border: 1px solid var(--border-color); margin-bottom: 15px;
+}
+
+.stats-container {
+    display: flex; justify-content: space-around; padding: 15px 0;
+    border-top: 1px solid #efefef; text-align: center;
+}
+
+.stats-container div { font-size: 14px; color: var(--text-sub); }
+.stats-container strong { color: var(--text-main); display: block; font-size: 16px; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.grid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; cursor: pointer; }
+
+.navbar {
+    position: fixed; bottom: 0; width: 100%; max-width: 600px; 
+    left: 50%; transform: translateX(-50%); background: white;
+    border-top: 1px solid var(--border-color); display: flex;
+    justify-content: space-around; align-items: center; height: 50px;
+}
+
+.navbar a { text-decoration: none; font-size: 24px; color: #262626; }

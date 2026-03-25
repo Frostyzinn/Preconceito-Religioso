@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificações | Respeito Sagrado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Prata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .notification-item { display: flex; align-items: flex-start; gap: 15px; padding: 20px; background: var(--white); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin-bottom: 15px; border: 1px solid rgba(0,0,0,0.02); transition: var(--transition); cursor: pointer; }
+        .notification-item:hover { transform: translateX(5px); box-shadow: var(--shadow-md); border-color: rgba(198, 156, 109, 0.3); }
+        .noti-avatar { width: 50px; height: 50px; background: rgba(7, 59, 58, 0.1); border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--primary-dark); }
+        .noti-content { flex-grow: 1; }
+        .noti-text { font-size: 0.95rem; color: var(--text-main); margin-bottom: 5px; }
+        .noti-time { font-size: 0.8rem; color: var(--accent-gold); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-content">
+        <h1 class="logo">Respeito<span class="thin">Sagrado</span></h1>
+    </div>
+</header>
+
+<main class="feed-container">
+    <div style="margin-bottom: 30px;">
+        <span class="category">Atividade Recente</span>
+        <h2 class="post-title" style="color: var(--primary-dark);">Suas Notificações</h2>
+    </div>
+
+    <div class="notification-list">
+        <div class="notification-item">
+            <div class="noti-avatar">🌿</div>
+            <div class="noti-content">
+                <p class="noti-text"><strong>Terreiro Ilê Axé</strong> curtiu seu post sobre a Lei de Liberdade Religiosa.</p>
+                <span class="noti-time">Há 2 min</span>
+            </div>
+        </div>
+
+        <div class="notification-item">
+            <div class="noti-avatar">💬</div>
+            <div class="noti-content">
+                <p class="noti-text"><strong>Camila Costa</strong> comentou: "Axé! Informação necessária contra o preconceito!"</p>
+                <span class="noti-time">Há 1 hora</span>
+            </div>
+        </div>
+        
+        <div class="notification-item">
+            <div class="noti-avatar">👤</div>
+            <div class="noti-content">
+                <p class="noti-text"><strong>João de Ogum</strong> começou a seguir você.</p>
+                <span class="noti-time">Há 3 horas</span>
+            </div>
+        </div>
+    </div>
+</main>
+
+<nav class="floating-nav">
+    <div class="nav-content">
+        <a href="index.html" class="nav-link" title="Início">🏠</a>
+        <a href="explore.html" class="nav-link" title="Explorar">🔍</a>
+        <a href="post.html" class="nav-link nav-link-center" title="Novo Post"><span class="plus-icon">➕</span></a>
+        <a href="notifications.html" class="nav-link active" title="Notificações">❤️</a>
+        <a href="perfil.html" class="nav-link" title="Perfil">👤</a>
+    </div>
+</nav>
+
+</body>
+</html>

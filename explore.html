@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar | Respeito Sagrado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Prata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .search-bar { width: 100%; padding: 18px 25px; border-radius: var(--radius-pill); border: 1px solid rgba(0,0,0,0.05); background: var(--white); box-shadow: var(--shadow-sm); font-size: 1rem; font-family: var(--font-body); outline: none; transition: var(--transition); margin-bottom: 30px; }
+        .search-bar:focus { box-shadow: var(--shadow-md); border-color: var(--accent-gold); }
+        .explore-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; }
+        .explore-item { border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 1; cursor: pointer; transition: var(--transition); box-shadow: var(--shadow-sm); position: relative; }
+        .explore-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .explore-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* ===== ESTILOS DO MODAL (PADRONIZADO) ===== */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 9999; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(4px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            display: block;
+            max-width: 80%;
+            max-height: 70vh;
+            width: auto;
+            height: auto;
+            border-radius: 12px;
+            border: 4px solid #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            animation: zoom 0.3s ease-out;
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #fff;
+            font-size: 45px;
+            font-weight: 300;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0.8); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+
+        /* Classe auxiliar para o JavaScript ativar o Flexbox */
+        .modal.active {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-content">
+        <h1 class="logo">Respeito<span class="thin">Sagrado</span></h1>
+    </div>
+</header>
+
+<main class="feed-container">
+    <input type="text" class="search-bar" placeholder="Pesquisar terreiros, leis, lideranças, Orixás...">
+
+    <div class="explore-grid">
+        <div class="explore-item"><img src="WhatsApp Image 2026-03-24 at 21.43.58.jpeg" alt="Orixás" onerror="this.src='https://via.placeholder.com/300'"></div>
+        <div class="explore-item"><img src="Dia Nacional do Combate ao Racismo (3) (2).png" alt="Leis" onerror="this.src='https://via.placeholder.com/300'"></div>
+        <div class="explore-item"><img src="Post - Sobre preconceito.png" alt="História" onerror="this.src='https://via.placeholder.com/300'"></div>
+        <div class="explore-item"><img src="Post para Instagram minimalista troque intolerância por empatia cinza (2).png" alt="Cartaz" onerror="this.src='https://via.placeholder.com/300'"></div>
+        <div class="explore-item"><img src="WhatsApp Image 2026-03-24 at 22.02.14.jpeg" alt="Povo" onerror="this.src='https://via.placeholder.com/300'"></div>
+        <div class="explore-item" style="background: var(--primary-dark); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-family: var(--font-heading); text-align: center; padding: 10px;">Ver Mais</div>
+    </div>
+</main>
+
+<nav class="floating-nav">
+    <div class="nav-content">
+        <a href="index.html" class="nav-link" title="Início">🏠</a>
+        <a href="explore.html" class="nav-link active" title="Explorar">🔍</a>
+        <a href="post.html" class="nav-link nav-link-center" title="Novo Post"><span class="plus-icon">➕</span></a>
+        <a href="notifications.html" class="nav-link" title="Notificações">❤️</a>
+        <a href="perfil.html" class="nav-link" title="Perfil">👤</a>
+    </div>
+</nav>
+
+<div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="expandedImg">
+</div>
+
+<script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("expandedImg");
+    const closeBtn = document.querySelector(".close-modal");
+
+    // Seleciona todas as imagens dentro dos itens de explorar
+    const exploreImages = document.querySelectorAll(".explore-item img");
+
+    exploreImages.forEach(img => {
+        img.onclick = function() {
+            modal.classList.add("active");
+            modalImg.src = this.src;
+        }
+    });
+
+    // Fechar Modal ao clicar no X
+    closeBtn.onclick = () => {
+        modal.classList.remove("active");
+    }
+
+    // Fechar Modal ao clicar fora da imagem
+    modal.onclick = (e) => {
+        if (e.target !== modalImg) {
+            modal.classList.remove("active");
+        }
+    };
+</script>
+
+</body>
+</html>
